@@ -42,5 +42,25 @@ namespace CarWebApiServer.Controllers
                 return carsAndPass.ToList();
             }
         }
+
+        [HttpPost]
+        [ActionName("AddCar")]
+        public void AddCar(CarDto mycar)
+        {
+            Car car = new Car();
+            if (mycar!=null)
+            {
+                car.CarColor = mycar.CarColor;
+                car.CarCompany = mycar.CarCompany;
+                car.CarSize = mycar.CarSize;
+                car.Comments = mycar.Comments;
+                using (CarsDBContext dBContext = new CarsDBContext())
+                {
+                    dBContext.Car.Add(car);
+                }
+            }
+           
+        }
+
     }
 }
