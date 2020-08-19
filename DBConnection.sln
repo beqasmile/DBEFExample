@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarUI", "CarUI\CarUI.csproj", "{25B37878-207D-4FB4-BF44-312D40ADC459}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarCommon", "CarCommon\CarCommon.csproj", "{CA7552D0-35E4-464F-A1F0-9811D1CB357F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWebServer", "WebCarServer\CarWebServer.csproj", "{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{25B37878-207D-4FB4-BF44-312D40ADC459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{25B37878-207D-4FB4-BF44-312D40ADC459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{25B37878-207D-4FB4-BF44-312D40ADC459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{25B37878-207D-4FB4-BF44-312D40ADC459}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CA7552D0-35E4-464F-A1F0-9811D1CB357F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA7552D0-35E4-464F-A1F0-9811D1CB357F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CA7552D0-35E4-464F-A1F0-9811D1CB357F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA7552D0-35E4-464F-A1F0-9811D1CB357F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {86903A19-F7ED-4147-BE80-D168EF725257}
+	EndGlobalSection
+EndGlobal

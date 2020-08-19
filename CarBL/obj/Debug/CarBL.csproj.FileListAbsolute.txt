@@ -1,0 +1,9 @@
+C:\dev\dayDB\DBConnection\CarBL\obj\Debug\CarBL.csprojAssemblyReference.cache
+C:\dev\dayDB\DBConnection\CarBL\obj\Debug\CarBL.csproj.CoreCompileInputs.cache
+C:\dev\dayDB\DBConnection\CarBL\bin\Debug\CarBL.dll
+C:\dev\dayDB\DBConnection\CarBL\bin\Debug\CarBL.pdb
+C:\dev\dayDB\DBConnection\CarBL\obj\Debug\CarBL.dll
+C:\dev\dayDB\DBConnection\CarBL\obj\Debug\CarBL.pdb
+C:\dev\dayDB\DBConnection\CarBL\bin\Debug\CarCommon.dll
+C:\dev\dayDB\DBConnection\CarBL\bin\Debug\CarCommon.pdb
+C:\dev\dayDB\DBConnection\CarBL\obj\Debug\CarBL.csproj.CopyComplete

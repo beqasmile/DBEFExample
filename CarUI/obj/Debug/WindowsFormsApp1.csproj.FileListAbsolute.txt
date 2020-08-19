@@ -1,0 +1,12 @@
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CarBlankForm.resources
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Menu.resources
+C:\dev\dayDB\DBConnection\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.CarList.resources
