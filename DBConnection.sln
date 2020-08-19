@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarCommon", "CarCommon\CarC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWebServer", "WebCarServer\CarWebServer.csproj", "{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarWebApiServer", "CarWebApiServer\CarWebApiServer.csproj", "{CFAEC16A-98FE-4785-A97D-9147F2ABEF5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B29D2EEA-5117-492A-A4AA-7AF1D09704F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFAEC16A-98FE-4785-A97D-9147F2ABEF5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFAEC16A-98FE-4785-A97D-9147F2ABEF5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFAEC16A-98FE-4785-A97D-9147F2ABEF5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFAEC16A-98FE-4785-A97D-9147F2ABEF5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

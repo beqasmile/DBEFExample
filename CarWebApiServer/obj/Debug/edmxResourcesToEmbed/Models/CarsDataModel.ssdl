@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CarsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CarsDBModelStoreContainer">
+    <EntitySet Name="Cars" EntityType="CarsDBModel.Store.Cars" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarSizes" EntityType="CarsDBModel.Store.CarSizes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DriverLessonType" EntityType="CarsDBModel.Store.DriverLessonType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drivers" EntityType="CarsDBModel.Store.Drivers" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Cars">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CarSize" Type="int" Nullable="false" />
+    <Property Name="CarCompany" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CarColor" Type="int" Nullable="true" />
+    <Property Name="Comments" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CarSizes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CarSize1" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="NumOfPassengers" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="DriverLessonType">
+    <Key>
+      <PropertyRef Name="LessonType" />
+    </Key>
+    <Property Name="LessonType" Type="int" Nullable="false" />
+    <Property Name="LessonTypeDriver" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Age" Type="int" Nullable="true" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="DriversLessonType" Type="int" Nullable="false" />
+  </EntityType>
+</Schema>

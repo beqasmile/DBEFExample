@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarsDBModelStoreContainer" CdmEntityContainer="CarsDBContext">
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.Car)">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CarSize" ColumnName="CarSize" />
+          <ScalarProperty Name="CarCompany" ColumnName="CarCompany" />
+          <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarSizes">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.CarSize)">
+        <MappingFragment StoreEntitySet="CarSizes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CarSize1" ColumnName="CarSize1" />
+          <ScalarProperty Name="NumOfPassengers" ColumnName="NumOfPassengers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverLessonType">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.DriverLessonType)">
+        <MappingFragment StoreEntitySet="DriverLessonType">
+          <ScalarProperty Name="LessonType" ColumnName="LessonType" />
+          <ScalarProperty Name="LessonTypeDriver" ColumnName="LessonTypeDriver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.Driver)">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DriversLessonType" ColumnName="DriversLessonType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

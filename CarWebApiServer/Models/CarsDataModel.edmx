@@ -1,0 +1,161 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CarsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityContainer Name="CarsDBModelStoreContainer">
+    <EntitySet Name="Cars" EntityType="CarsDBModel.Store.Cars" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarSizes" EntityType="CarsDBModel.Store.CarSizes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="DriverLessonType" EntityType="CarsDBModel.Store.DriverLessonType" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Drivers" EntityType="CarsDBModel.Store.Drivers" store:Type="Tables" Schema="dbo" />
+  </EntityContainer>
+  <EntityType Name="Cars">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CarSize" Type="int" Nullable="false" />
+    <Property Name="CarCompany" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="CarColor" Type="int" Nullable="true" />
+    <Property Name="Comments" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="CarSizes">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CarSize1" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="NumOfPassengers" Type="int" Nullable="true" />
+  </EntityType>
+  <EntityType Name="DriverLessonType">
+    <Key>
+      <PropertyRef Name="LessonType" />
+    </Key>
+    <Property Name="LessonType" Type="int" Nullable="false" />
+    <Property Name="LessonTypeDriver" Type="nvarchar" Nullable="true" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Drivers">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="DriverName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Age" Type="int" Nullable="true" />
+    <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="150" />
+    <Property Name="DriversLessonType" Type="int" Nullable="false" />
+  </EntityType>
+</Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CarsDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CarSize" Type="Int32" Nullable="false" />
+          <Property Name="CarCompany" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CarColor" Type="Int32" />
+          <Property Name="Comments" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CarSize">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="CarSize1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumOfPassengers" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DriverLessonType">
+          <Key>
+            <PropertyRef Name="LessonType" />
+          </Key>
+          <Property Name="LessonType" Type="Int32" Nullable="false" />
+          <Property Name="LessonTypeDriver" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Driver">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DriverName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DriversLessonType" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="CarsDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="CarSizes" EntityType="Self.CarSize" />
+          <EntitySet Name="DriverLessonType" EntityType="Self.DriverLessonType" />
+          <EntitySet Name="Drivers" EntityType="Self.Driver" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CarsDBModelStoreContainer" CdmEntityContainer="CarsDBContext">
+    <EntitySetMapping Name="Cars">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.Car)">
+        <MappingFragment StoreEntitySet="Cars">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CarSize" ColumnName="CarSize" />
+          <ScalarProperty Name="CarCompany" ColumnName="CarCompany" />
+          <ScalarProperty Name="CarColor" ColumnName="CarColor" />
+          <ScalarProperty Name="Comments" ColumnName="Comments" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CarSizes">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.CarSize)">
+        <MappingFragment StoreEntitySet="CarSizes">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="CarSize1" ColumnName="CarSize1" />
+          <ScalarProperty Name="NumOfPassengers" ColumnName="NumOfPassengers" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DriverLessonType">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.DriverLessonType)">
+        <MappingFragment StoreEntitySet="DriverLessonType">
+          <ScalarProperty Name="LessonType" ColumnName="LessonType" />
+          <ScalarProperty Name="LessonTypeDriver" ColumnName="LessonTypeDriver" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Drivers">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.Driver)">
+        <MappingFragment StoreEntitySet="Drivers">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="DriverName" ColumnName="DriverName" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="DriversLessonType" ColumnName="DriversLessonType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
