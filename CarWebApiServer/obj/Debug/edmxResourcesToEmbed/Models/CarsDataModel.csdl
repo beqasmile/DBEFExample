@@ -36,8 +36,8 @@
     <Property Name="DriversLessonType" Type="Int32" Nullable="false" />
   </EntityType>
   <EntityContainer Name="CarsDBContext" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Cars" EntityType="Self.Car" />
-    <EntitySet Name="CarSizes" EntityType="Self.CarSize" />
+    <EntitySet Name="Car" EntityType="Self.Car" />
+    <EntitySet Name="CarSize" EntityType="Self.CarSize" />
     <EntitySet Name="DriverLessonType" EntityType="Self.DriverLessonType" />
     <EntitySet Name="Drivers" EntityType="Self.Driver" />
   </EntityContainer>

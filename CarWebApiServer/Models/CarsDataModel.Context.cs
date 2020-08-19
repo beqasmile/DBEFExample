@@ -25,8 +25,8 @@ namespace CarWebApiServer.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Car> Cars { get; set; }
-        public virtual DbSet<CarSize> CarSizes { get; set; }
+        public virtual DbSet<Car> Car { get; set; }
+        public virtual DbSet<CarSize> CarSize { get; set; }
         public virtual DbSet<DriverLessonType> DriverLessonType { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
     }

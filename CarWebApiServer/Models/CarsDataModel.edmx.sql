@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/19/2020 19:30:07
+-- Date Created: 08/19/2020 20:10:41
 -- Generated from EDMX file: C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\Models\CarsDataModel.edmx
 -- --------------------------------------------------
 
@@ -22,14 +22,14 @@ GO
 -- Dropping existing tables
 -- --------------------------------------------------
 
-IF OBJECT_ID(N'[dbo].[Cars]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Cars];
+IF OBJECT_ID(N'[dbo].[Car]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Car];
 GO
 IF OBJECT_ID(N'[dbo].[CarSizes]', 'U') IS NOT NULL
     DROP TABLE [dbo].[CarSizes];
 GO
-IF OBJECT_ID(N'[dbo].[DriverLessonTypes]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[DriverLessonTypes];
+IF OBJECT_ID(N'[dbo].[DriverLessonType]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[DriverLessonType];
 GO
 IF OBJECT_ID(N'[dbo].[Drivers]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Drivers];
@@ -39,8 +39,8 @@ GO
 -- Creating all tables
 -- --------------------------------------------------
 
--- Creating table 'Cars'
-CREATE TABLE [dbo].[Cars] (
+-- Creating table 'Car'
+CREATE TABLE [dbo].[Car] (
     [ID] int  NOT NULL,
     [CarSize] int  NOT NULL,
     [CarCompany] varchar(100)  NOT NULL,
@@ -49,8 +49,8 @@ CREATE TABLE [dbo].[Cars] (
 );
 GO
 
--- Creating table 'CarSizes'
-CREATE TABLE [dbo].[CarSizes] (
+-- Creating table 'CarSize'
+CREATE TABLE [dbo].[CarSize] (
     [ID] int  NOT NULL,
     [CarSize1] varchar(50)  NOT NULL,
     [NumOfPassengers] int  NULL
@@ -78,15 +78,15 @@ GO
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
 
--- Creating primary key on [ID] in table 'Cars'
-ALTER TABLE [dbo].[Cars]
-ADD CONSTRAINT [PK_Cars]
+-- Creating primary key on [ID] in table 'Car'
+ALTER TABLE [dbo].[Car]
+ADD CONSTRAINT [PK_Car]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 
--- Creating primary key on [ID] in table 'CarSizes'
-ALTER TABLE [dbo].[CarSizes]
-ADD CONSTRAINT [PK_CarSizes]
+-- Creating primary key on [ID] in table 'CarSize'
+ALTER TABLE [dbo].[CarSize]
+ADD CONSTRAINT [PK_CarSize]
     PRIMARY KEY CLUSTERED ([ID] ASC);
 GO
 

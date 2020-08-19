@@ -6,12 +6,12 @@
     <edmx:StorageModels>
     <Schema Namespace="CarsDBModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2012" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityContainer Name="CarsDBModelStoreContainer">
-    <EntitySet Name="Cars" EntityType="CarsDBModel.Store.Cars" store:Type="Tables" Schema="dbo" />
-    <EntitySet Name="CarSizes" EntityType="CarsDBModel.Store.CarSizes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Car" EntityType="CarsDBModel.Store.Car" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="CarSize" EntityType="CarsDBModel.Store.CarSize" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DriverLessonType" EntityType="CarsDBModel.Store.DriverLessonType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Drivers" EntityType="CarsDBModel.Store.Drivers" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
-  <EntityType Name="Cars">
+  <EntityType Name="Car">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -21,7 +21,7 @@
     <Property Name="CarColor" Type="int" Nullable="true" />
     <Property Name="Comments" Type="varchar" Nullable="false" MaxLength="100" />
   </EntityType>
-  <EntityType Name="CarSizes">
+  <EntityType Name="CarSize">
     <Key>
       <PropertyRef Name="ID" />
     </Key>
@@ -86,8 +86,8 @@
           <Property Name="DriversLessonType" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityContainer Name="CarsDBContext" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Cars" EntityType="Self.Car" />
-          <EntitySet Name="CarSizes" EntityType="Self.CarSize" />
+          <EntitySet Name="Car" EntityType="Self.Car" />
+          <EntitySet Name="CarSize" EntityType="Self.CarSize" />
           <EntitySet Name="DriverLessonType" EntityType="Self.DriverLessonType" />
           <EntitySet Name="Drivers" EntityType="Self.Driver" />
         </EntityContainer>
@@ -97,9 +97,9 @@
     <edmx:Mappings>
     <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="CarsDBModelStoreContainer" CdmEntityContainer="CarsDBContext">
-    <EntitySetMapping Name="Cars">
+    <EntitySetMapping Name="Car">
       <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.Car)">
-        <MappingFragment StoreEntitySet="Cars">
+        <MappingFragment StoreEntitySet="Car">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CarSize" ColumnName="CarSize" />
           <ScalarProperty Name="CarCompany" ColumnName="CarCompany" />
@@ -108,9 +108,9 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="CarSizes">
+    <EntitySetMapping Name="CarSize">
       <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.CarSize)">
-        <MappingFragment StoreEntitySet="CarSizes">
+        <MappingFragment StoreEntitySet="CarSize">
           <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="CarSize1" ColumnName="CarSize1" />
           <ScalarProperty Name="NumOfPassengers" ColumnName="NumOfPassengers" />

@@ -1,4 +1,5 @@
 ﻿using CarWebApiServer.Models;
+using CarWebApiServer.Models.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +17,29 @@ namespace CarWebApiServer.Controllers
         {
             using (CarsDBContext dBContext = new CarsDBContext())
             {
-                return dBContext.Cars.ToList();
+                return dBContext.Car.ToList();
+            }
+        }
+        [HttpGet]
+        [ActionName("GetCarsByNumOfPassengers")]
+        public IEnumerable<CarDto> GetCarsByNumOfPassengers(int numOfPassengers)
+        {
+            using (CarsDBContext dBContext = new CarsDBContext())
+            {
+                var carsAndPass = from car in dBContext.Car
+                                  join carSize in dBContext.CarSize on car.CarSize equals carSize.ID
+                                  where carSize.NumOfPassengers > numOfPassengers
+                                  select new CarDto
+                                  {
+                                      CarColor = car.CarColor,
+                                      CarCompany = car.CarCompany,
+                                      ID = car.ID,
+                                      Comments = car.Comments,
+                                      NumOfPassengers = carSize.NumOfPassengers,
+                                      CarSize1 = carSize.CarSize1
+                                  };
+
+                return carsAndPass.ToList();
             }
         }
     }
