@@ -1,4 +1,5 @@
 ﻿using CarWebApiServer.Models;
+using CarWebApiServer.Models.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -42,16 +43,23 @@ namespace CarWebApiServer.Controllers
 
         [HttpGet]
         [ActionName("GetDriversByDriverType")]
-        public IEnumerable<Driver> GetDriversByDriverType(string driverType)
+        public IEnumerable<DriverDto> GetDriversByDriverType(string driverType)
         {
             using (CarsDBContext dBContext = new CarsDBContext())
             {
                 var driversByType = (from driver in dBContext.Drivers
                                      join driverLessonType in dBContext.DriverLessonType on driver.DriversLessonType equals driverLessonType.LessonType
                                      where driverLessonType.LessonTypeDriver == driverType
-                                     select driver).ToList();
+                                     select new DriverDto
+                                     {
+                                         ID = driver.ID,
+                                         DriverName = driver.DriverName,
+                                         DriversLessonType = driver.DriversLessonType,
+                                         Address = driver.Address,
+                                         DriversLessonTypeValue = driverLessonType.LessonTypeDriver
+                                     });
 
-                return driversByType;
+                return driversByType.ToList();
 
 
               
