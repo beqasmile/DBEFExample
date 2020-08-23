@@ -57,12 +57,36 @@ namespace CarWebApiServer.Controllers
                 using (CarsDBContext dBContext = new CarsDBContext())
                 {
                     dBContext.Car.Add(car);
-
+                    dBContext.SaveChanges();
                 }
                 
             }
            
         }
 
+
+        [HttpPost]
+        [ActionName("UpdateCar")]
+        public IHttpActionResult UpdateCar(CarDto myCar)
+        {
+
+            using (CarsDBContext dBContext = new CarsDBContext())
+            {
+                Car car = dBContext.Car.Where(c => c.ID == myCar.ID).FirstOrDefault();
+                if (car!=null)
+                {
+                    car.CarColor = myCar.CarColor;
+                    car.CarCompany = myCar.CarCompany;
+                    car.CarSize = myCar.CarSize;
+                    car.Comments = myCar.Comments;
+                }
+
+               
+                dBContext.SaveChanges();
+                return Ok(myCar);
+            }
+
+
+        }
     }
 }

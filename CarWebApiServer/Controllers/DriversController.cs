@@ -37,7 +37,7 @@ namespace CarWebApiServer.Controllers
         {
             using (CarsDBContext dBContext = new CarsDBContext())
             {
-                return dBContext.Drivers.Where(dri => dri.Age>age && dri.DriversLessonType==driverType).ToList();
+                return dBContext.Drivers.Where(dri => dri.Age > age && dri.DriversLessonType == driverType).ToList();
             }
         }
 
@@ -62,9 +62,41 @@ namespace CarWebApiServer.Controllers
                 return driversByType.ToList();
 
 
-              
+
             }
         }
+
+        [HttpPost]
+        [ActionName("AddDriver")]
+        public IHttpActionResult AddDriver(DriverDto myDriver)
+
+        {
+            Driver driver = new Driver();
+            if (driver != null)
+            {
+                driver.DriverName = myDriver.DriverName;
+                driver.DriversLessonType = myDriver.DriversLessonType;
+
+                driver.Age = myDriver.Age;
+                driver.Address = myDriver.Address;
+                using (CarsDBContext dBContext = new CarsDBContext())
+                {
+                    dBContext.Drivers.Add(driver);
+                    dBContext.SaveChanges();
+                    return Ok(myDriver);
+                }
+
+            }
+            return Ok(myDriver);
+
+
+
+
+        }
+
+
+
+
 
     }
 
