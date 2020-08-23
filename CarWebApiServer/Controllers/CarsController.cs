@@ -57,7 +57,9 @@ namespace CarWebApiServer.Controllers
                 using (CarsDBContext dBContext = new CarsDBContext())
                 {
                     dBContext.Car.Add(car);
+
                 }
+                
             }
            
         }
