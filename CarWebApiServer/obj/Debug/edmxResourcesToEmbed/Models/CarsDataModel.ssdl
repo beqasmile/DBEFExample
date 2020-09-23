@@ -5,6 +5,7 @@
     <EntitySet Name="CarSize" EntityType="CarsDBModel.Store.CarSize" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DriverLessonType" EntityType="CarsDBModel.Store.DriverLessonType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Drivers" EntityType="CarsDBModel.Store.Drivers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roads" EntityType="CarsDBModel.Store.Roads" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="Car">
     <Key>
@@ -40,5 +41,16 @@
     <Property Name="Age" Type="int" Nullable="true" />
     <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="150" />
     <Property Name="DriversLessonType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoadName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MaxSpeed" Type="int" Nullable="false" />
+    <Property Name="NumLanes" Type="int" Nullable="true" />
+    <Property Name="RoadDesc" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RoadNum" Type="smallint" Nullable="false" />
   </EntityType>
 </Schema>

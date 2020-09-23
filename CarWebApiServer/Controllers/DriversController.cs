@@ -1,4 +1,5 @@
-﻿using CarWebApiServer.Models;
+﻿using CarWebApiServer.App_Start;
+using CarWebApiServer.Models;
 using CarWebApiServer.Models.Dto;
 using System;
 using System.Collections.Generic;
@@ -13,31 +14,38 @@ namespace CarWebApiServer.Controllers
     {
         [HttpGet]
         [ActionName("GetAllDrivers")]
-        public IEnumerable<Driver> GetAllDrivers()
+        public IEnumerable<DriverDto> GetAllDrivers()
         {
             using (CarsDBContext dBContext = new CarsDBContext())
             {
-                return dBContext.Drivers.ToList();
+                List<Driver> sourceDrivers = dBContext.Drivers.ToList();
+
+                IEnumerable<DriverDto> result = AutoMapperConfiguration.MapperConfiguration.Map<List<Driver>, List<DriverDto>>(sourceDrivers);
+                return result;
+               
             }
         }
 
         [HttpGet]
         [ActionName("GetDriversByCityName")]
-        public IEnumerable<Driver> GetDriversByCityName(String cityName)
+        public IEnumerable<DriverDto> GetDriversByCityName(String cityName)
         {
             using (CarsDBContext dBContext = new CarsDBContext())
             {
-                return dBContext.Drivers.Where(dri => dri.Address.Contains(cityName)).ToList();
+
+                IEnumerable<DriverDto> result = AutoMapperConfiguration.MapperConfiguration.Map<List<Driver>, List<DriverDto>>(dBContext.Drivers.Where(dri => dri.Address.Contains(cityName)).ToList());
+                return result;
             }
         }
 
         [HttpGet]
         [ActionName("GetDriversByAgeAndType")]
-        public IEnumerable<Driver> GetDriversByAge(int age, int driverType)
+        public IEnumerable<DriverDto> GetDriversByAge(int age, int driverType)
         {
             using (CarsDBContext dBContext = new CarsDBContext())
             {
-                return dBContext.Drivers.Where(dri => dri.Age > age && dri.DriversLessonType == driverType).ToList();
+                IEnumerable<DriverDto> result = AutoMapperConfiguration.MapperConfiguration.Map<List<Driver>, List<DriverDto>>(dBContext.Drivers.Where(dri => dri.Age > age && dri.DriversLessonType == driverType).ToList());
+                return result;
             }
         }
 
@@ -74,11 +82,13 @@ namespace CarWebApiServer.Controllers
             Driver driver = new Driver();
             if (driver != null)
             {
-                driver.DriverName = myDriver.DriverName;
-                driver.DriversLessonType = myDriver.DriversLessonType;
 
-                driver.Age = myDriver.Age;
-                driver.Address = myDriver.Address;
+                driver = AutoMapperConfiguration.MapperConfiguration.Map<DriverDto, Driver>(myDriver);
+
+                //driver.DriverName = myDriver.DriverName;
+                //driver.DriversLessonType = myDriver.DriversLessonType;
+                //driver.Age = myDriver.Age;
+                //driver.Address = myDriver.Address;
                 using (CarsDBContext dBContext = new CarsDBContext())
                 {
                     dBContext.Drivers.Add(driver);
@@ -88,9 +98,6 @@ namespace CarWebApiServer.Controllers
 
             }
             return Ok(myDriver);
-
-
-
 
         }
 

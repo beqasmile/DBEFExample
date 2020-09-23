@@ -40,5 +40,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Roads">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.Road)">
+        <MappingFragment StoreEntitySet="Roads">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoadName" ColumnName="RoadName" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="NumLanes" ColumnName="NumLanes" />
+          <ScalarProperty Name="RoadDesc" ColumnName="RoadDesc" />
+          <ScalarProperty Name="RoadNum" ColumnName="RoadNum" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

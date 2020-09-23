@@ -1,3 +1,4 @@
+using CarWebApiServer.App_Start;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,10 @@ namespace CarWebApiServer
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
+
+            AutoMapperConfiguration.CreateConfiguration();
+            
+
         }
     }
 }

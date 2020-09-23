@@ -10,6 +10,7 @@
     <EntitySet Name="CarSize" EntityType="CarsDBModel.Store.CarSize" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="DriverLessonType" EntityType="CarsDBModel.Store.DriverLessonType" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Drivers" EntityType="CarsDBModel.Store.Drivers" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roads" EntityType="CarsDBModel.Store.Roads" store:Type="Tables" Schema="dbo" />
   </EntityContainer>
   <EntityType Name="Car">
     <Key>
@@ -45,6 +46,17 @@
     <Property Name="Age" Type="int" Nullable="true" />
     <Property Name="Address" Type="nvarchar" Nullable="true" MaxLength="150" />
     <Property Name="DriversLessonType" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roads">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RoadName" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="MaxSpeed" Type="int" Nullable="false" />
+    <Property Name="NumLanes" Type="int" Nullable="true" />
+    <Property Name="RoadDesc" Type="nvarchar(max)" Nullable="true" />
+    <Property Name="RoadNum" Type="smallint" Nullable="false" />
   </EntityType>
 </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -90,7 +102,19 @@
           <EntitySet Name="CarSize" EntityType="Self.CarSize" />
           <EntitySet Name="DriverLessonType" EntityType="Self.DriverLessonType" />
           <EntitySet Name="Drivers" EntityType="Self.Driver" />
+          <EntitySet Name="Roads" EntityType="CarsDBModel.Road" />
         </EntityContainer>
+        <EntityType Name="Road">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoadName" Type="String" Nullable="false" />
+          <Property Name="MaxSpeed" Type="Int32" Nullable="false" />
+          <Property Name="NumLanes" Type="Int32" Nullable="true" />
+          <Property Name="RoadDesc" Type="String" Nullable="true" />
+          <Property Name="RoadNum" Type="Int16" Nullable="false" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -133,6 +157,18 @@
           <ScalarProperty Name="Age" ColumnName="Age" />
           <ScalarProperty Name="Address" ColumnName="Address" />
           <ScalarProperty Name="DriversLessonType" ColumnName="DriversLessonType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roads">
+      <EntityTypeMapping TypeName="IsTypeOf(CarsDBModel.Road)">
+        <MappingFragment StoreEntitySet="Roads">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="RoadName" ColumnName="RoadName" />
+          <ScalarProperty Name="MaxSpeed" ColumnName="MaxSpeed" />
+          <ScalarProperty Name="NumLanes" ColumnName="NumLanes" />
+          <ScalarProperty Name="RoadDesc" ColumnName="RoadDesc" />
+          <ScalarProperty Name="RoadNum" ColumnName="RoadNum" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

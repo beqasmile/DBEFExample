@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 08/19/2020 20:10:41
+-- Date Created: 08/26/2020 20:14:47
 -- Generated from EDMX file: C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\Models\CarsDataModel.edmx
 -- --------------------------------------------------
 
@@ -25,8 +25,8 @@ GO
 IF OBJECT_ID(N'[dbo].[Car]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Car];
 GO
-IF OBJECT_ID(N'[dbo].[CarSizes]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[CarSizes];
+IF OBJECT_ID(N'[dbo].[CarSize]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[CarSize];
 GO
 IF OBJECT_ID(N'[dbo].[DriverLessonType]', 'U') IS NOT NULL
     DROP TABLE [dbo].[DriverLessonType];
@@ -74,6 +74,17 @@ CREATE TABLE [dbo].[Drivers] (
 );
 GO
 
+-- Creating table 'Roads'
+CREATE TABLE [dbo].[Roads] (
+    [Id] int IDENTITY(1,1) NOT NULL,
+    [RoadName] nvarchar(max)  NOT NULL,
+    [MaxSpeed] int  NOT NULL,
+    [NumLanes] int  NULL,
+    [RoadDesc] nvarchar(max)  NULL,
+    [RoadNum] smallint  NOT NULL
+);
+GO
+
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -100,6 +111,12 @@ GO
 ALTER TABLE [dbo].[Drivers]
 ADD CONSTRAINT [PK_Drivers]
     PRIMARY KEY CLUSTERED ([ID] ASC);
+GO
+
+-- Creating primary key on [Id] in table 'Roads'
+ALTER TABLE [dbo].[Roads]
+ADD CONSTRAINT [PK_Roads]
+    PRIMARY KEY CLUSTERED ([Id] ASC);
 GO
 
 -- --------------------------------------------------

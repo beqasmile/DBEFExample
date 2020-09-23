@@ -1,4 +1,5 @@
-﻿using CarWebApiServer.Models;
+﻿using CarWebApiServer.App_Start;
+using CarWebApiServer.Models;
 using CarWebApiServer.Models.Dto;
 using System;
 using System.Collections.Generic;
@@ -13,11 +14,12 @@ namespace CarWebApiServer.Controllers
     {
         [HttpGet]
         [ActionName("GetAllCars")]
-        public IEnumerable<Car> GetCars()
+        public IEnumerable<CarDto> GetCars()
         {
             using (CarsDBContext dBContext = new CarsDBContext())
             {
-                return dBContext.Car.ToList();
+                IEnumerable<CarDto> result = AutoMapperConfiguration.MapperConfiguration.Map<List<Car>,List< CarDto >> (dBContext.Car.ToList());
+                return result;
             }
         }
         [HttpGet]
@@ -50,10 +52,12 @@ namespace CarWebApiServer.Controllers
             Car car = new Car();
             if (mycar!=null)
             {
-                car.CarColor = mycar.CarColor;
-                car.CarCompany = mycar.CarCompany;
-                car.CarSize = mycar.CarSize;
-                car.Comments = mycar.Comments;
+                car= AutoMapperConfiguration.MapperConfiguration.Map<CarDto, Car>(mycar);
+
+                //car.CarColor = mycar.CarColor;
+                //car.CarCompany = mycar.CarCompany;
+                //car.CarSize = mycar.CarSize;
+                //car.Comments = mycar.Comments;
                 using (CarsDBContext dBContext = new CarsDBContext())
                 {
                     dBContext.Car.Add(car);
@@ -72,13 +76,19 @@ namespace CarWebApiServer.Controllers
 
             using (CarsDBContext dBContext = new CarsDBContext())
             {
+
                 Car car = dBContext.Car.Where(c => c.ID == myCar.ID).FirstOrDefault();
                 if (car!=null)
                 {
-                    car.CarColor = myCar.CarColor;
-                    car.CarCompany = myCar.CarCompany;
-                    car.CarSize = myCar.CarSize;
-                    car.Comments = myCar.Comments;
+
+                    //IEnumerableCarDto> result = AutoMapperConfiguration.MapperConfiguration.Map<List<Car>, List<CarDto>>(dBContext.carss.Where(dri => dri.Age > age && dri.DriversLessonType == driverType).ToList());
+
+                    car = AutoMapperConfiguration.MapperConfiguration.Map<CarDto, Car>(myCar);
+
+                //    car.CarColor = myCar.CarColor;
+                //    car.CarCompany = myCar.CarCompany;
+                //    car.CarSize = myCar.CarSize;
+                //    car.Comments = myCar.Comments;
                 }
 
                

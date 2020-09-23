@@ -40,5 +40,17 @@
     <EntitySet Name="CarSize" EntityType="Self.CarSize" />
     <EntitySet Name="DriverLessonType" EntityType="Self.DriverLessonType" />
     <EntitySet Name="Drivers" EntityType="Self.Driver" />
+    <EntitySet Name="Roads" EntityType="CarsDBModel.Road" />
   </EntityContainer>
+  <EntityType Name="Road">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoadName" Type="String" Nullable="false" />
+    <Property Name="MaxSpeed" Type="Int32" Nullable="false" />
+    <Property Name="NumLanes" Type="Int32" Nullable="true" />
+    <Property Name="RoadDesc" Type="String" Nullable="true" />
+    <Property Name="RoadNum" Type="Int16" Nullable="false" />
+  </EntityType>
 </Schema>

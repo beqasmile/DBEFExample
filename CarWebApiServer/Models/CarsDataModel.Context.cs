@@ -29,5 +29,6 @@ namespace CarWebApiServer.Models
         public virtual DbSet<CarSize> CarSize { get; set; }
         public virtual DbSet<DriverLessonType> DriverLessonType { get; set; }
         public virtual DbSet<Driver> Drivers { get; set; }
+        public virtual DbSet<Road> Roads { get; set; }
     }
 }

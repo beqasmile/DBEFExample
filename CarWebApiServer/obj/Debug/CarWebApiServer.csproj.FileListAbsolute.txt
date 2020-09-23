@@ -69,3 +69,8 @@ C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\obj\Debug\CarWebApiServer.cs
 C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\obj\Debug\CarWebApiServer.csproj.CopyComplete
 C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\obj\Debug\CarWebApiServer.dll
 C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\obj\Debug\CarWebApiServer.pdb
+C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\bin\AutoMapper.dll
+C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\bin\AutoMapper.xml
+C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\bin\System.Web.Cors.dll
+C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\bin\System.Web.Http.Cors.dll
+C:\dev\dayDBWeb\DbWebExample-master\CarWebApiServer\bin\System.Web.Http.Cors.xml
